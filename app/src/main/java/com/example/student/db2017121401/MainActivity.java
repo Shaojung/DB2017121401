@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         }
         Notification n = builder.build();
         nm.notify(1, n);
-
+    }
+    public void click2(View v)
+    {
+        nm.cancelAll();
     }
 }
