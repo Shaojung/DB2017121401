@@ -4,7 +4,9 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
     {
 
         Notification.Builder builder = new Notification.Builder(this);
+        Intent it = new Intent(MainActivity.this, SecActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(this, 1, it, PendingIntent.FLAG_CANCEL_CURRENT);
         builder.setContentTitle("這是標題")
                 .setContentText("這裡是通知的內容")
-                .setSmallIcon(R.mipmap.ic_launcher);
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentIntent(pi);
         if (Build.VERSION.SDK_INT >= 26)
         {
             builder.setChannelId("IDLOVE");
