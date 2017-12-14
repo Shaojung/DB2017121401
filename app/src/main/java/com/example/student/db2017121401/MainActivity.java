@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         builder.setContentTitle("這是標題")
                 .setContentText("這裡是通知的內容")
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentIntent(pi);
+                .setContentIntent(pi)
+                .setAutoCancel(true);
         if (Build.VERSION.SDK_INT >= 26)
         {
             builder.setChannelId("IDLOVE");
